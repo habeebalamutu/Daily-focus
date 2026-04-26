@@ -18,8 +18,16 @@
     
     <main class="app">
         <header class="header">
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+            </div>
             <span class="date-display" id="dateDisplay"></span>
             <h1>Focus</h1>
+            <p class="quote-display" id="quoteDisplay"></p>
             <div class="countdown" id="countdown">
                 <span class="countdown-label">Time left</span>
                 <span class="countdown-timer" id="countdownTimer">--:--:--</span>
@@ -43,7 +51,16 @@
         <section class="goals-section">
             <div class="goals-header">
                 <span class="goals-label">Today's goals</span>
-                <span class="goals-progress" id="goalsProgress">0/0</span>
+                <div class="goals-actions">
+                    <span class="goals-progress" id="goalsProgress">0/0</span>
+                    <button class="export-btn-small" id="exportBtn" title="Export goals">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
             <ul class="goals-list" id="goalsList"></ul>
             <div class="empty-state" id="emptyState">
@@ -65,5 +82,12 @@
     </main>
     
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then((registration) => console.log('SW registered:', registration.scope))
+                .catch((error) => console.log('SW registration failed:', error));
+        }
+    </script>
 </body>
 </html>

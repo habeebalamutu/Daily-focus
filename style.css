@@ -91,6 +91,46 @@ body {
 .header {
     text-align: center;
     margin-bottom: 40px;
+    position: relative;
+}
+
+.header-actions {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.theme-toggle,
+.export-btn {
+    width: 36px;
+    height: 36px;
+    background: var(--paper-dark);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle svg,
+.export-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--muted);
+}
+
+.theme-toggle:hover,
+.export-btn:hover {
+    border-color: var(--ink);
+}
+
+.theme-toggle:hover svg,
+.export-btn:hover svg {
+    stroke: var(--ink);
 }
 
 .date-display {
@@ -109,6 +149,18 @@ h1 {
     font-style: italic;
     letter-spacing: -2px;
     line-height: 1;
+}
+
+.quote-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 12px;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
 }
 
 .countdown {
@@ -250,6 +302,12 @@ h1 {
     margin-bottom: 16px;
 }
 
+.goals-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .goals-label {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
@@ -262,6 +320,33 @@ h1 {
     font-family: 'Space Mono', monospace;
     font-size: 12px;
     color: var(--muted);
+}
+
+.export-btn-small {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.export-btn-small:hover {
+    background: var(--paper-dark);
+    color: var(--ink);
+    border-color: var(--muted);
+}
+
+.export-btn-small svg {
+    width: 14px;
+    height: 14px;
 }
 
 .goals-list {
@@ -336,6 +421,35 @@ h1 {
     flex: 1;
     font-size: 18px;
     font-style: italic;
+}
+
+.goal-notes {
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.goal-item:hover .goal-notes {
+    opacity: 0.5;
+}
+
+.goal-notes:hover {
+    opacity: 1 !important;
+    border-color: var(--accent);
+    background: var(--accent-light);
+}
+
+.goal-notes svg {
+    width: 12px;
+    height: 12px;
+    stroke: var(--accent);
 }
 
 .goal-delete {
@@ -476,6 +590,93 @@ h1 {
 .review-text {
     font-size: 16px;
     font-style: italic;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    width: 90%;
+    max-width: 400px;
+    padding: 24px;
+    animation: slideIn 0.3s ease;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.modal-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    max-width: 80%;
+    line-height: 1.4;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--muted);
+    line-height: 1;
+    padding: 0;
+}
+
+.modal-close:hover {
+    color: var(--ink);
+}
+
+.modal-textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    background: var(--paper-dark);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--ink);
+    resize: none;
+    outline: none;
+    margin-bottom: 16px;
+}
+
+.modal-textarea:focus {
+    border-color: var(--ink);
+}
+
+.modal-save {
+    width: 100%;
+    padding: 12px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.modal-save:hover {
+    background: var(--accent);
 }
 
 .footer {
